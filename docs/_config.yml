@@ -28,7 +28,7 @@ url: "https://es24h.com" # the base hostname & protocol for your site, e.g. http
 github_username:  es24h
 
 # Build settings
-theme: minima
+theme: bulma-clean-theme
 plugins:
   - jekyll-feed
 
@@ -51,3 +51,7 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Blog settings
+paginate: 5
+paginate_path: "/blog/page:num"
