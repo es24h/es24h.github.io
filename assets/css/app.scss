@@ -6,3 +6,9 @@
 @import "main";
 
 .pagination-link.is-current { background-color: $primary; border-color: $primary; }
+
+p.published { font-size: smaller; text-align: right; }
+p.card-footer-item { font-size: smaller; justify-content: start; }
+header.card-header { box-shadow: none; }
+div.card-content { padding: 0 1.5rem; }
+footer.card-footer { border-top: none }
