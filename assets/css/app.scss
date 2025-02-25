@@ -1,0 +1,8 @@
+---
+---
+// $primary: #aaaaaa;
+// Import Main CSS file from theme
+
+@import "main";
+
+.pagination-link.is-current { background-color: $primary; border-color: $primary; }
