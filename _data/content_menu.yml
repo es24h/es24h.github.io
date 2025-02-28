@@ -1,0 +1,37 @@
+- items:
+    - name: About this guide
+      link: /pages/about/
+
+- label: 1. Introduction
+  items:
+    - name: What is Elasticsearch
+      link: /pages/introduction/what-is/
+    - name: Concepts
+      link: /pages/introduction/concepts/
+    - name: Running Elasticsearch
+      link: /pages/introduction/running/
+
+- label: 2. Getting data in
+  items:
+    - name: Data ingestion options
+      link: /pages/data-in/options
+
+- label: 3. Querying
+  items:
+    - name: Query options
+      link: /pages/querying/overview
+
+- label: "The Elasticsearch data schema: mapping"
+
+- label: Full-text search
+
+- label: Data analysis
+
+- label: Data modeling
+
+- label: Data processing with pipelines
+
+- label: Scaling Elasticsearch
+
+- label: Geospatial search and analysis
+

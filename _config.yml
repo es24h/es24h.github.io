@@ -21,7 +21,7 @@
 title: Learn Elasticsearch in 24 hours
 email: abdon@es24h.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Learn Elasticsearch in 24 hours
+  A guide that helps you get started with Elasticsearch in 24 hours. From running Elasticsearch for the first time, to ingesting data and writing queries, and more advanced topics like scripting and working with large language models.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://es24h.com" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
@@ -74,3 +74,7 @@ defaults:
 # Blog settings
 paginate: 5
 paginate_path: "/blog/page:num"
+
+# Content settings
+version_xy: "8.17"
+version_xyz: "8.17.2"

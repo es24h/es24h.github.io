@@ -5,6 +5,6 @@
 layout: page
 title: Learn Elasticsearch
 subtitle: in 24 hours
-menubar_toc: true
+menubar: content_menu
 show_sidebar: true
 ---

@@ -12,3 +12,4 @@ p.card-footer-item { font-size: smaller; justify-content: start; }
 header.card-header { box-shadow: none; }
 div.card-content { padding: 0 1.5rem; }
 footer.card-footer { border-top: none }
+pre:has(code.language-term) { background-color: #4a4a4a; color: whitesmoke; }
