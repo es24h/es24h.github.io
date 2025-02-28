@@ -5,11 +5,11 @@
 - label: 1. Introduction
   items:
     - name: What is Elasticsearch
-      link: /pages/introduction/what-is/
+      link: /pages/introduction/what-is
     - name: Concepts
-      link: /pages/introduction/concepts/
+      link: /pages/introduction/concepts
     - name: Running Elasticsearch
-      link: /pages/introduction/running/
+      link: /pages/introduction/running
 
 - label: 2. Getting data in
   items:
