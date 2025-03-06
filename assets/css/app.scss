@@ -12,4 +12,29 @@ p.card-footer-item { font-size: smaller; justify-content: start; }
 header.card-header { box-shadow: none; }
 div.card-content { padding: 0 1.5rem; }
 footer.card-footer { border-top: none }
-pre:has(code.language-term) { background-color: #4a4a4a; color: whitesmoke; }
+
+code { color: $grey-dark }
+pre:has(code.language-term) { background-color: $grey-dark; color: whitesmoke; }
+div.language-console pre { background-color: $grey-dark; color: whitesmoke; }
+
+p.highlight {
+    font-size: smaller;
+    background: rgba(255, 235, 130, 0.2);
+    border-left: 4px solid #e7af06;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
+    padding: 0.8rem;
+}
+
+pre.highlight {
+    font-size: smaller;
+    background: whitesmoke;
+    border-left: 4px solid $primary;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 3px 10px rgba(0, 0, 0, 0.08);
+    padding: 0.8rem;
+}
+
+.highlight .err { color: $grey-dark; background-color: whitesmoke; }
+.highlight .hll { background-color: #ffffcc }
+.highlight .nl { color: $grey-dark; }
