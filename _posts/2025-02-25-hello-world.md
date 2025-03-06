@@ -2,7 +2,7 @@
 layout: post
 title: Hello world!
 date: 2025-02-25
-categories: jekyll update
+tag: general updates
 ---
 
 Working in the search technology space in the early 2010s, it was impossible to miss the meteoric rise of Elasticsearch.
