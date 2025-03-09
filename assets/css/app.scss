@@ -34,7 +34,7 @@ pre.highlight {
 }
 
 .language-terminal pre.highlight { background-color: $grey-dark; color: whitesmoke; }
-.language-terminal pre.highlight button { filter: invert(100%); }
+.language-terminal pre.highlight button { filter: invert(75%); }
 .highlight .go { color: whitesmoke; }
 
 .highlight .err { color: $grey-dark; background-color: whitesmoke; }
@@ -53,6 +53,7 @@ pre.highlight > button {
     background-color: transparent;
     opacity: 0;
     padding: 0;
+    filter: invert(50%);
 }
 
 pre.highlight > button > img {
