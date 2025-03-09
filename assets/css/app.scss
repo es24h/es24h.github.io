@@ -14,8 +14,6 @@ div.card-content { padding: 0 1.5rem; }
 footer.card-footer { border-top: none }
 
 code { color: $grey-dark }
-pre:has(code.language-term) { background-color: $grey-dark; color: whitesmoke; }
-div.language-console pre { background-color: $grey-dark; color: whitesmoke; }
 
 p.highlight {
     font-size: smaller;
@@ -35,6 +33,37 @@ pre.highlight {
     padding: 0.8rem;
 }
 
+.language-terminal pre.highlight { background-color: $grey-dark; color: whitesmoke; }
+.language-terminal pre.highlight button { filter: invert(100%); }
+.highlight .go { color: whitesmoke; }
+
 .highlight .err { color: $grey-dark; background-color: whitesmoke; }
 .highlight .hll { background-color: #ffffcc }
 .highlight .nl { color: $grey-dark; }
+
+pre.highlight {
+    position: relative;
+}
+
+pre.highlight > button {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border: 0;
+    background-color: transparent;
+    opacity: 0;
+    padding: 0;
+}
+
+pre.highlight > button > img {
+    width: 1rem;
+}
+  
+pre.highlight:hover > button {
+    opacity: 1;
+}
+
+pre.highlight > button:active,
+pre.highlight > button:focus {
+    opacity: 1;
+}

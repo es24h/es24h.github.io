@@ -34,6 +34,6 @@ The easiest way to run a multi-node Elasticsearch cluster and Kibana is using Do
     1. `STACK_VERSION` - set to the desired version of Elasticsearch, for example: `{{site.version_xyz}}`.
 
 1. Open a terminal, change into the directory containing the files, and run:  
-```term
+```terminal
 docker-compose up -d
 ```
