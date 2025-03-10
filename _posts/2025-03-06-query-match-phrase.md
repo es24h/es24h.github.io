@@ -42,7 +42,7 @@ The reason is that the `match` query doesn’t care about the order of the searc
 
 If you do care about the order of the search terms, use the `match_phrase` query. This query only returns documents that contain the exact *phrase:* each of the search terms, in the exact order that they have been provided in the query. 
 
-To use the `match_phrase` query, the earlier search request becomes:
+Using the `match_phrase` query, the earlier search request becomes:
 
 ```json
 GET books/_search
@@ -97,9 +97,7 @@ Now, the top 3 results have the desired ranking, and recall is great since all 1
 1. `"Complete Tales and Poems"`
 1. `"Essential Tales and Poems"`
 
-## Considerations when using the match phrase query
-
-### Slop
+## Slop
 
 By default, the `match_phrase` query doesn't allow other words to appear between search terms. You can change that behavior with the `slop` parameter.
 
@@ -151,7 +149,7 @@ GET books/_search
 }
 ```
 
-### More control
+## More control
 
 For more control over the order and proximity of search terms, take a look at the [`intervals`](https://link.es24h.com/7ab6) and [`span`](https://link.es24h.com/c8a3) queries.
 
