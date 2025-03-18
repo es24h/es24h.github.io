@@ -7,7 +7,7 @@ summary: The `match` query is one of the most used queries in Elasticsearch, but
 ---
 
 {: .highlight }
-The Elasticsearch Query DSL provides over 50 different queries. To help you see the forest for the trees, every month, this blog series highlights a different query.
+Elasticsearch provides over 50 different queries. To help you see the forest for the trees, every month, this blog series highlights a different query.
 
 One of the most commonly used queries in Elasticsearch is the `match` query. However, its behavior with multi-word queries can sometimes be unexpected.
 
