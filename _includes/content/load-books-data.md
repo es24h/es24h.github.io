@@ -6,7 +6,7 @@ The dataset contains the following information for each book:
 * `id`, a unique identifier
 * `title`, the title
 * `authors`, names of the authors, separated by slashes (`/`)
-* `average_rate`, the average rating
+* `average_rating`, the average rating
 * `isbn`, the International Standard Book Number (ISBN)
 * `language_code`, a code indicating the language in which the book has been written
 * `num_pages`, the number of pages
