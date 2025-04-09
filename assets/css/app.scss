@@ -12,8 +12,9 @@ a, a code { color: $primary; }
 p.published { font-size: smaller; text-align: right; }
 p.card-footer-item { font-size: smaller; justify-content: start; }
 header.card-header { box-shadow: none; }
-div.card-content { padding: 0 1rem; }
+div.card-content { padding: 0 1rem; margin-bottom: 1rem; }
 footer.card-footer { border-top: none }
+footer.card-footer p { padding: 0.5rem 1rem; }
 
 .content img { max-width: 80%; margin:auto; display: block; }
 
