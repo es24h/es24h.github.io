@@ -42,7 +42,7 @@ GET /_search
 * In the `query` clause, you specify the query used to retrieve documents. 
 * In the `script` clause, you provide the Painless script that calculates the scores.
 
-In the script, you can use the following to any calculate custom score:
+In the script, you can use the following:
 
 * `_score`, a variable containing a document's original score.
 * Several [predefined Painless functions](https://link.es24h.com/ba77).
@@ -104,10 +104,10 @@ Accessing fields using [doc values](https://link.es24h.com/0b4e) is fastest. To 
 doc['average_rating'].value
 ```
 
-This assumes that every document contains that field. If your data isn't clean, check whether the field has a value first. This script returns the unmodified score if a document doesn't have a value for the `average_rating` field:
+This assumes that every document contains that field. If your data isn't clean, check whether the field has a value first, otherwise Elasticsearch may return an error. This script returns the unmodified score if a document doesn't have a value for the `average_rating` field:
 
 ```
-doc['num_pages'].size() == 0 ? _score : _score + doc['average_rating'].value"
+doc['num_pages'].size() == 0 ? _score : _score + doc['average_rating'].value
 ```
 
 Putting this together as a search request:
@@ -143,7 +143,7 @@ Decay functions are a powerful set of predefined Painless functions. They enable
 Suppose you're looking for a Tolstoy book with around 500 pages. You could:
 
 * Set `origin` to `500`. 
-* If anything in the range between 490 and 510 should score equally well, you'd set `offset` to `10`.
+* If anything in the range between 490 and 510 pages should score equally well, you'd set `offset` to `10`.
 *  If the score should drop to `0.1` at 400 or 600 pages, you'd set `scale` to `90` and `decay` to `0.1`. 
 
 Put together as a search request that uses a Gaussian decay function:
