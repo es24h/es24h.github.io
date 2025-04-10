@@ -15,7 +15,7 @@ When you send Elasticsearch a search request, it responds with a ranked list of 
 * a distance metric for vector queries.
 * a relevance metric for full-text queries, calculated by default using the [Okapi BM25 algorithm](https://link.es24h.com/7970).
 
-However, there may be times when the default scoring mechanism doesn't meet your needs. For instance, if you're running an eCommerce store, you might want to list products with higher profit margins above those with lower margins. In such cases, Elasticsearch provides several ways to fully control the scoring. One of those ways is the script score query.
+However, there may be times when the default scoring mechanism doesn't meet your needs. For example, if you're running an eCommerce store, you might want to list products with higher profit margins above those with lower margins. In such cases, Elasticsearch provides several ways to fully control the scoring. One of those ways is the script score query.
 
 ## The script score query
 
@@ -50,7 +50,7 @@ In the script, you can use the following:
 
 ## An example
 
-Let's take a look at a trivial example: retrieving all documents that match a query with a random score. The following request searches for all documents in the [books dataset]({%link pages/books-dataset.md%}) whose title contains the phrase `"war and peace"` and assigns a random score to each hit:
+Let's take a look at a trivial example: assigning a random score to all documents that match a query. The following request searches for all documents in the [books dataset]({%link pages/books-dataset.md%}) whose title contains the phrase `"war and peace"` and assigns a random score to each hit:
 
 ```json
 GET books/_search
@@ -107,7 +107,7 @@ doc['average_rating'].value
 This assumes that every document contains that field. If your data isn't clean, check whether the field has a value first, otherwise Elasticsearch may return an error. This script returns the unmodified score if a document doesn't have a value for the `average_rating` field:
 
 ```
-doc['num_pages'].size() == 0 ? _score : _score + doc['average_rating'].value
+doc['average_rating'].size() == 0 ? _score : _score + doc['average_rating'].value
 ```
 
 Putting this together as a search request:
@@ -123,7 +123,7 @@ GET books/_search
         }
       },
       "script": {
-        "source": "doc['num_pages'].size() == 0 ? _score : _score + doc['average_rating'].value"
+        "source": "doc['average_rating'].size() == 0 ? _score : _score + doc['average_rating'].value"
       }
     }
   }
@@ -146,7 +146,7 @@ Suppose you're looking for a Tolstoy book with around 500 pages. You could:
 * If anything in the range between 490 and 510 pages should score equally well, you'd set `offset` to `10`.
 *  If the score should drop to `0.1` at 400 or 600 pages, you'd set `scale` to `90` and `decay` to `0.1`. 
 
-Put together as a search request that uses a Gaussian decay function:
+Using a Gaussian decay function, the search request looks like this:
 
 ```json
 GET books/_search
