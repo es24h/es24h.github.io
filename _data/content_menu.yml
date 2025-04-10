@@ -1,6 +1,6 @@
 - items:
     - name: About this guide
-      link: /pages/about/
+      link: /pages/about
 
 - label: 1. Introduction
   items:
@@ -10,6 +10,10 @@
       link: /pages/introduction/concepts
     - name: Running Elasticsearch
       link: /pages/introduction/running
+    - name: "Kibana: the Elasticsearch UI"
+      link: /pages/introduction/kibana
+    - name: The Elasticsearch API
+      link: /pages/introduction/api
 
 - label: 2. Getting data in
   items:
@@ -18,7 +22,7 @@
 
 - label: 3. Querying
   items:
-    - name: Query options
+    - name: Query languages
       link: /pages/querying/overview
 
 - label: "The Elasticsearch data schema: mapping"
