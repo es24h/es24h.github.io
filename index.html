@@ -31,6 +31,7 @@ main{padding:28px 20px 80px}.controls{position:sticky;top:0;z-index:10;backgroun
 .category-menu{position:static;max-height:240px;margin-top:6px;box-shadow:none}
 .actions select{flex:1;max-width:none!important}
 }
+.on-date{color:var(--accent2)!important;font-weight:700}
 </style>
 </head>
 <body>
@@ -185,16 +186,17 @@ function matches(film){
  if(durationFilter.value==="verylong"&&d<151)return false;
  return true;
 }
+function sortScreening(film){if(dateFilter.value){const s=film.screenings.filter(x=>x.startsWith(dateFilter.value+" ")).sort((x,y)=>dateKey(x).localeCompare(dateKey(y)));if(s.length)return s[0]}return firstScreening(film)}
 function sortedFilms(){
  const result=films.filter(matches);
- result.sort((a,b)=>{switch(sort.value){case"title":return a.title.localeCompare(b.title);case"year":return String(a.year).localeCompare(String(b.year));case"duration":return a.duration-b.duration;default:return dateKey(firstScreening(a)).localeCompare(dateKey(firstScreening(b)))}});return result;
+ result.sort((a,b)=>{switch(sort.value){case"title":return a.title.localeCompare(b.title);case"year":return String(a.year).localeCompare(String(b.year));case"duration":return a.duration-b.duration;default:return dateKey(sortScreening(a)).localeCompare(dateKey(sortScreening(b)))||a.title.localeCompare(b.title)}});return result;
 }
 function updateFilterBadge(){const n=(dateFilter.value?1:0)+(yearFilter.value?1:0)+(durationFilter.value?1:0)+selectedCategories.size;const b=$("filterBadge");b.textContent=n;b.hidden=n===0}
 function render(){updateFilterBadge();
  const result=sortedFilms();count.textContent=`${result.length} ${result.length===1?"title":"titles"}`;tableBody.innerHTML="";cards.innerHTML="";$("tableEmpty").style.display=result.length?"none":"block";
  result.forEach(film=>{
-  const tr=document.createElement("tr");tr.innerHTML=`<td>${film.screenings.map(s=>`<span class="screening">${escapeHTML(s)}</span>`).join("")}</td><td><div class="title" data-index="${films.indexOf(film)}">${escapeHTML(film.title)}</div></td><td>${escapeHTML(film.year)}</td><td>${film.duration} min</td><td><div class="category-badges">${categoryBadges(film.category)}</div></td><td><div class="summary">${escapeHTML(film.summary)}</div></td>`;tableBody.appendChild(tr);
-  const card=document.createElement("article");card.className="card";card.innerHTML=`<div class="card-title" data-index="${films.indexOf(film)}">${escapeHTML(film.title)}</div><div class="card-meta">${escapeHTML(film.year)} · ${film.duration} min</div><div class="category-badges">${categoryBadges(film.category)}</div><div class="card-meta">${film.screenings.map(escapeHTML).join(" · ")}</div><div class="card-summary">${escapeHTML(film.summary)}</div>`;cards.appendChild(card);
+  const tr=document.createElement("tr");tr.innerHTML=`<td>${film.screenings.map(s=>`<span class="screening${dateFilter.value&&s.startsWith(dateFilter.value+" ")?" on-date":""}">${escapeHTML(s)}</span>`).join("")}</td><td><div class="title" data-index="${films.indexOf(film)}">${escapeHTML(film.title)}</div></td><td>${escapeHTML(film.year)}</td><td>${film.duration} min</td><td><div class="category-badges">${categoryBadges(film.category)}</div></td><td><div class="summary">${escapeHTML(film.summary)}</div></td>`;tableBody.appendChild(tr);
+  const card=document.createElement("article");card.className="card";card.innerHTML=`<div class="card-title" data-index="${films.indexOf(film)}">${escapeHTML(film.title)}</div><div class="card-meta">${escapeHTML(film.year)} · ${film.duration} min</div><div class="category-badges">${categoryBadges(film.category)}</div><div class="card-meta">${film.screenings.map(x=>dateFilter.value&&x.startsWith(dateFilter.value+" ")?`<strong class="on-date">${escapeHTML(x)}</strong>`:escapeHTML(x)).join(" · ")}</div><div class="card-summary">${escapeHTML(film.summary)}</div>`;cards.appendChild(card);
  });
  document.querySelectorAll("[data-index]").forEach(el=>el.addEventListener("click",()=>openFilm(films[Number(el.dataset.index)])));
 }
